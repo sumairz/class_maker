@@ -1,27 +1,45 @@
-<pre>
 /*
 * @Author: {{author_name}}
 * @Last Updated: {{now|date("Y-m-d")}}
+* @File Created: {{now|date("Y-m-d h:i:s")}}
 */
 
 var {{class_name}} = function () {
 'use strict';
 
-{% for vars in class_vars %}
+{% for vars in class_vars_public %}
     this.{{vars}} = "";
+{% endfor %}
+{% for vars_pvt in class_vars_private %}
+    {{vars_pvt}} = "";
 {% endfor %}  
+  
 };
 
 "use strict"; //use strict conventions
 
 /* ********** Getters and Setters START ******** */
 {{class_name}}.prototype = { 
-{% for vars in class_vars %}
+{% for vars in class_vars_public %}
     
     get{{vars|camelCase}}: function() {
         return this.{{vars}};
-    }        
+    }, 
+    
+    set{{vars|camelCase}}: function(value) {
+        this.{{vars}} = value'
+    },        
 {% endfor %}
 }
 /* ********** Getters and Setters END ******** */
-</pre>
+
+/* ********** Class Methods START ******** */
+{% for methods in method_names %}
+    
+    {{methods|camelCase}}: function() {
+        return true;
+    }, 
+    
+{% endfor %}
+/* ********** Class Methods END ******** */
+}
