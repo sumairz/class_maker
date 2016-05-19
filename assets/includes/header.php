@@ -1,6 +1,8 @@
 <?php
 
 include_once "app_constant.php";
+require_once "../assets/libraries/Twig-1.24.0/lib/Twig/Autoloader.php";
+
 
 ?>
 <!doctype html>
@@ -13,7 +15,7 @@ include_once "app_constant.php";
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="">
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -21,6 +23,6 @@ include_once "app_constant.php";
 </head>
 
 <body>
-  <script src="js/scripts.js"></script>
+  <script src="../assets/js/script.js"></script>
 </body>
 </html>
