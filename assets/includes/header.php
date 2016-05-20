@@ -1,10 +1,7 @@
 <?php
-
 include_once "app_constant.php";
-require_once "../assets/libraries/Twig-1.24.0/lib/Twig/Autoloader.php";
-
-
 ?>
+
 <!doctype html>
 
 <html lang="en">
@@ -12,10 +9,10 @@ require_once "../assets/libraries/Twig-1.24.0/lib/Twig/Autoloader.php";
   <meta charset="utf-8">
 
   <title><?=APP_TITLE?></title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+  <meta name="description" content="<?=APP_DESCRIPTION?>">
+  <meta name="author" content="<?=APP_TITLE?>">
 
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="assets/libraries/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,6 +20,3 @@ require_once "../assets/libraries/Twig-1.24.0/lib/Twig/Autoloader.php";
 </head>
 
 <body>
-  <script src="../assets/js/script.js"></script>
-</body>
-</html>

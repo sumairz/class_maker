@@ -11,9 +11,8 @@ var {{class_name}} = function () {
     this.{{vars}} = "";
 {% endfor %}
 {% for vars_pvt in class_vars_private %}
-    {{vars_pvt}} = "";
-{% endfor %}  
-  
+    var {{vars_pvt}} = "";
+{% endfor %}
 };
 
 "use strict"; //use strict conventions
@@ -27,7 +26,7 @@ var {{class_name}} = function () {
     }, 
     
     set{{vars|camelCase}}: function(value) {
-        this.{{vars}} = value'
+        this.{{vars}} = value
     },        
 {% endfor %}
 }

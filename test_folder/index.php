@@ -1,6 +1,7 @@
 <?php
 
 include "../assets/includes/header.php";
+require_once "../assets/libraries/Twig-1.24.0/lib/Twig/Autoloader.php";
 
 Twig_Autoloader::register();
 
