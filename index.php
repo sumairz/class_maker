@@ -5,7 +5,31 @@ include "assets/includes/header.php";
 <h2>Class Template Maker</h2>
 <div id="class_maker_form" class="container">
     <form method="post" action="class_maker_app/index.php">
-        
+       
+       
+       <div class="row">
+           <div class="form-group col-lg-3">
+               <label for="code">Select Language</label> 
+                <select class="form-control" name="language">
+                    <option>Select a language...</option>
+                    <option value='javascript'>JavaScript</option>
+                    <option value='php'>PHP</option>
+                    <option value='java'>Java</option>
+                </select>
+            </div>
+       </div>
+       
+       <div class="row">
+           <div class="form-group col-lg-3">
+               <label for="code">Select template</label> 
+                <select class="form-control" name="template">
+                    <option>Select a template...</option>
+                    <option value='prototype'>prototype</option>
+                </select>
+            </div>
+       </div>
+
+
         <div class="row">
             <div class="form-group col-lg-3">
                 <label for="code">Author Name</label>

@@ -1,4 +1,5 @@
 <?php
+include '../assets/includes/app_constant.php';
 
 $content = array();
 $content['author_name'] = htmlspecialchars(trim($_POST['author_name']));
@@ -6,6 +7,9 @@ $content['class_name'] = htmlspecialchars(trim($_POST['class_name']));
 $content['class_vars_public'] = array();
 $content['class_vars_private'] = array();
 $content['method_names'] = array();
+$content['template_name'] = htmlspecialchars(trim($_POST['template'])).'.twig';
+$content['language'] = htmlspecialchars(trim($_POST['language']));
+
 
 $class_vars_explode = explode("\n", htmlspecialchars(trim($_POST['class_variables'])));
 foreach($class_vars_explode as $key=>$value)
@@ -21,12 +25,11 @@ foreach($class_vars_explode as $key=>$value)
 }
 
 $class_methods_explode = explode("\n", htmlspecialchars(trim($_POST['class_methods'])));
-foreach($class_vars_explode as $key=>$value)
+foreach($class_methods_explode as $key=>$value)
 {
     array_push($content['method_names'],htmlspecialchars(trim($value)));
 }
 
-//echo "<pre>";print_r($content);echo "</pre>";
 require_once "../assets/libraries/Twig-1.24.0/lib/Twig/Autoloader.php";
 
 Twig_Autoloader::register();
@@ -36,22 +39,23 @@ $twig = new Twig_Environment($loader);
 
 include "../assets/includes/twig_filters.php";
 
-$template = $twig->loadTemplate('prototype.twig');
+$template = $twig->loadTemplate($content['template_name']);
+
 
 $fileName = $content['class_name'].".js";
+$filePath = "../".USER_FILES_LOCATION."/".$fileName;
 
-$myfile = fopen($fileName, "w") or die("Unable to open file!");
+$myfile = fopen($filePath, "w") or die("Unable to open file!");
 if($myfile)
 {
     fwrite($myfile, $template->render($content));
     fclose($myfile);
 }
 
-$file_url = $fileName;
+$file_url = $filePath;
 header('Content-Type: application/octet-stream');
 header("Content-Transfer-Encoding: Binary"); 
 header("Content-disposition: attachment; filename=\"" . $fileName . "\""); 
-readfile($fileName); // do the double-download-dance (dirty but worky)
-header("location: ../index.php");
+readfile($filePath);
 exit;
 ?>
