@@ -1,0 +1,18 @@
+.info_grid {
+    background-color: #c0c0a5;
+    height: 450px;
+}
+
+.attr_grid {
+    background-color: #d5d5c3;
+    height: 450px;
+}
+
+.methods_grid{
+    background-color: #eaeae1;
+    height: 450px;
+}
+
+.button_grid {
+    height: auto;
+}
